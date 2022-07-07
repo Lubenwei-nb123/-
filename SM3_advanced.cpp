@@ -26,7 +26,7 @@ void BiToW(unsigned int Bi[], unsigned int W[])
 		W[i] = SM3_p1(tmp) ^ (SM3_rotl32(W[i - 13], 7)) ^ W[i - 6];
 	}
 }
-/*****************************************************************
+/****************************************************************
  Function: WToW1
  Description: calculate W1 from W
  Calls:
