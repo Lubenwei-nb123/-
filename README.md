@@ -4,6 +4,7 @@ Project: implement the naïve birthday attack of reduced SM3
 Project: implement the Rho method of reduced SM3  
 Project: implement length extension attack for SM3, SHA256, etc.  
 Project: do your best to optimize SM3 implementation (software)：SM3_advanced.h, SM3_advanced.cpp  
+2022.7.7：使用循环展开，使用inline关键字替代宏定义  
 Project: Impl Merkle Tree following RFC6962：Merkel_Tree.go  
 基于Go语言的Merkle树实现，其中附带了一个样例：  
 ![image](https://user-images.githubusercontent.com/78082874/178011264-26870bc4-36e0-4d67-9d12-55f25d47517a.png)  
