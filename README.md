@@ -16,7 +16,7 @@ Project: Try to Implement this scheme
   
 SM2  
 *Project: report on the application of this deduce technique in Ethereum with ECDSA  
-*Project: impl sm2 with RFC6979  
+*Project: impl sm2 with RFC6979：SM2_impl
 *Project: verify the above pitfalls with proof-of-concept code  
 *Project: Implement the above ECMH scheme  
 *Project: Implement a PGP scheme with SM2  
