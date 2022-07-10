@@ -26,8 +26,8 @@ SM2
 *Project: PoC impl of the scheme, or do implement analysis by Google  
 *Project: implement sm2 2P decrypt with real network communication  
   
-Bitcoin-public
-*Project: send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself
+Bitcoin-public  
+*Project: send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself  
 *Project: forge a signature to pretend that you are Satoshi  
 通过Google搜索，在https://cryptome.org/2015/11/satoshi-nakamoto-public-key.htm 上找到了中本聪的公钥：  
 -----BEGIN PGP PUBLIC KEY BLOCK-----  
