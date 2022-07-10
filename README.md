@@ -28,7 +28,7 @@ SM2
 
 Bitcoin
 Project: forge a signature to pretend that you are Satoshi  
-通过Google搜索，在https://cryptome.org/2015/11/satoshi-nakamoto-public-key.htm上找到了中本聪的公钥：  
+通过Google搜索，在https://cryptome.org/2015/11/satoshi-nakamoto-public-key.htm 上找到了中本聪的公钥：  
 -----BEGIN PGP PUBLIC KEY BLOCK-----  
 Version: GnuPG v1.4.7 (MingW32)  
 
