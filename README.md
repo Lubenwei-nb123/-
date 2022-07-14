@@ -5,7 +5,8 @@ Project: implement the Rho method of reduced SM3
 Project: implement length extension attack for SM3, SHA256, etc.：SM3_advanced.cpp的main函数  
 2022.7.14  
 以字符串"SDU"为样例，输出如下：  
-![image](https://user-images.githubusercontent.com/78082874/179010114-5f09e7b5-8736-4e4a-ab8d-ddf02611d054.png)
+![image](https://user-images.githubusercontent.com/78082874/179014712-498c4684-43c8-471f-b8f0-201a00b6728f.png)
+  
 Project: do your best to optimize SM3 implementation (software)：SM3_advanced.h, SM3_advanced.cpp  
 2022.7.7  
 1.使用循环展开，让循环CPE逼近吞吐量界限。  
