@@ -92,9 +92,9 @@ int main() {
 			if (i != 31)
 				continue;
 			else
-				printf("伪造成功！");
+				printf("success！");
 		} else {
-			printf("伪造失败！");
+			printf("fail！");
 			break;
 		}
 	}
