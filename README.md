@@ -2,7 +2,7 @@
 SM3  
 Project: implement the naïve birthday attack of reduced SM3  
 Project: implement the Rho method of reduced SM3  
-Project: implement length extension attack for SM3, SHA256, etc.  
+Project: implement length extension attack for SM3, SHA256, etc.：SM3_advanced.cpp的main函数  
 2022.7.14  
 以字符串"SDU"为样例，输出如下：  
 ![image](https://user-images.githubusercontent.com/78082874/179010114-5f09e7b5-8736-4e4a-ab8d-ddf02611d054.png)
