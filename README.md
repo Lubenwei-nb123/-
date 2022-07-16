@@ -22,7 +22,7 @@ Project: Impl Merkle Tree following RFC6962：Merkel_Tree.go
 Project: Try to Implement this scheme   
   
 SM2  
-*Project: report on the application of this deduce technique in Ethereum with ECDSA：SM2_recover_pk
+*Project: report on the application of this deduce technique in Ethereum with ECDSA：SM2_recover_pk  
 明文以字符串"SDU"为样例，输出如下：  
 ![image](https://user-images.githubusercontent.com/78082874/179349603-ff2f67ba-544b-4859-bfe4-29eb5e5cb62f.png)  
   
