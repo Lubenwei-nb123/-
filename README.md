@@ -1,4 +1,5 @@
-SM3  
+#作业
+##SM3  
 Project: implement the naïve birthday attack of reduced SM3  
 Project: implement the Rho method of reduced SM3  
 Project: implement length extension attack for SM3, SHA256, etc.：SM3_advanced.cpp的main函数  
@@ -20,7 +21,7 @@ Project: Impl Merkle Tree following RFC6962：Merkel_Tree.go
 
 Project: Try to Implement this scheme   
   
-SM2  
+##SM2  
 *Project: report on the application of this deduce technique in Ethereum with ECDSA：SM2_recover_pk  
 明文以字符串"SDU"为样例，输出如下：  
 ![image](https://user-images.githubusercontent.com/78082874/179349603-ff2f67ba-544b-4859-bfe4-29eb5e5cb62f.png)  
@@ -35,7 +36,7 @@ SM2
 *Project: PoC impl of the scheme, or do implement analysis by Google  
 *Project: implement sm2 2P decrypt with real network communication  
   
-Bitcoin-public  
+##Bitcoin-public  
 *Project: send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself  
 *Project: forge a signature to pretend that you are Satoshi  
 通过Google搜索，在https://cryptome.org/2015/11/satoshi-nakamoto-public-key.htm 上找到了中本聪的公钥：  
@@ -70,15 +71,15 @@ EBjAnoZeyUihPrcAniVWl5M44RuGctJe+IMNX4eVkC08AJ9v7cXsp5uDdQNo8q3R
 =3FTe  
 -----END PGP PUBLIC KEY BLOCK-----  
   
-Eth-public  
+##Eth-public  
 Project: research report on MP  
   
-Real world cryptanalyses  
+##Real world cryptanalyses  
 
 Project: Find a key with hash value “sdu_cst_20220610” under a message composed of your name followed by your student ID. For example, “San Zhan 202000460001”.  
 Project: Find a 64-byte message under some k fulfilling that their hash value is symmetrical  
   
-Real world zk  
+##Real world zk  
 Project Idea   
 1. Write a circuit to prove that your CET6 grade is larger than 425  
 a. Your grade info is like (cn_id, grade, year, sig_by_moe)，These grades are published as commitments onchain by MoE.  
