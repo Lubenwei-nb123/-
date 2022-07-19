@@ -4,64 +4,44 @@ from hashlib import sha256
 import func_lib
 
 
-
-G_X = 55066263022277343669578718895168534326250603453777594175500187360389116729240
-# BASE_Y = 111369311037667457822445869299419316870247801668819120014212655173383442957026
-G_Y = 32670510020758816978083085130507043184471273380659243275938904335757337482424
-
-G = (G_X, G_Y)#基点
-# 有限域的阶
+#参数选取
+Gx = 55066263022277343669578718895168534326250603453777594175500187360389116729240
+Gy = 32670510020758816978083085130507043184471273380659243275938904335757337482424
+G = (Gx, Gy)
 P = 115792089237316195423570985008687907853269984665640564039457584007908834671663
-# 椭圆曲线的阶
 N = 115792089237316195423570985008687907852837564279074904382605163141518161494337
 
-
-
+#生成公私钥对
 def generate_key():
     sk = int(secrets.token_hex(32), 16)
+    #这里使用secrets模块中的加密安全随机数生成器，提高安全性.
     pk = func_lib.elliptic_multiply(sk, G)
     return sk, pk
 
-sk, pk = generate_key()
-
-print('real pk：',pk)
-
+#sha256哈希函数
 def hash(message):
-    hashed_message = sha256(message.encode('utf-8')).hexdigest()
-    return int(hashed_message, 16)
+    return int(sha256(message.encode('utf-8')).hexdigest(), 16)
 
-
-
-def sign(private_key, message):#私钥签名
-    e = hash(message)#哈希
-    k = secrets.randbelow(P)#0~P的随机数
-    random_point = func_lib.elliptic_multiply(k, G)#P点=k*G
-    r = random_point[0] % P
-    s = func_lib.mod_inverse(k, N) * (e + r*private_key) % N#用私钥进行签名
-
-    return (r, s)#以元组形式存在的签名
-
-
-
-
-message = "SDU"
-signature = sign(sk, message)
-
-print("sig(sk, message): ",signature)
-
-
-'''根据签名内容反推出公钥：'''
-def deduce_pk_from_sign(signature,message):
-    r=signature[0]
-    s=signature[1]
-    x = r % P
-    y2=((x**3)+7)
-    y=func_lib.Tonelli_Shanks(y2,P)
-
-
+#签名
+def sign(private_key, message):
     e = hash(message)
-    POINT_1=(x,y)
-    POINT_2=(x,P-y)
+    k = secrets.randbelow(P)
+    random_point = func_lib.elliptic_multiply(k, G)
+    r = random_point[0] % P
+    s = func_lib.mod_inverse(k, N) * (e + r*private_key) % N
+    return (r, s)
+
+#根据签名恢复公钥
+def recover_pk(sig, msg):
+    r  = sig[0]
+    s  = sig[1]
+    x  = r % P
+    y2 = ((x**3)+7)
+    y  = func_lib.Tonelli_Shanks(y2, P)
+
+    e  = hash(msg)
+    POINT_1 = (x, y)
+    POINT_2 = (x, P-y)
 
     #y1:
     skG   = func_lib.elliptic_multiply(s%N,POINT_1)
@@ -76,9 +56,16 @@ def deduce_pk_from_sign(signature,message):
     pk2   = func_lib.elliptic_multiply(func_lib.mod_inverse(r,N),skGeG)
     return pk1,pk2
 
+sk, pk = generate_key()
 
-pub1, pub2 = deduce_pk_from_sign(signature,message)
+print('real pk：',pk)
+
+msg = "SDU"
+sig = sign(sk, msg)
+
+print("sig(sk, msg): ", sig)
+pk1, pk2 = recover_pk(sig, msg)
 print('deduced pk：')
-print(pub1)
-print(pub2)
+print(pk1)
+print(pk2)
 
