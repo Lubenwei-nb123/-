@@ -45,7 +45,7 @@
 
 最终找到了16bits的碰撞.
 
-![image-20220730150634148](C:\Users\Uncharged Legion\AppData\Roaming\Typora\typora-user-images\image-20220730150634148.png)
+![image-20220730150634148](https://user-images.githubusercontent.com/78082874/181903157-59b03eba-0686-45a0-8726-bdf887b5ad81.png)
 
 ### Project: implement the Rho method of reduced SM3  
 
@@ -63,7 +63,7 @@
 
 分别进行前8、16、128、256bits的碰撞，运行结果如下：
 
-![image-20220730115102064](C:\Users\Uncharged Legion\AppData\Roaming\Typora\typora-user-images\image-20220730115102064.png)
+![image-20220730115102064](https://user-images.githubusercontent.com/78082874/181903150-b4bf2831-2b69-4265-8bdd-457639ea4886.png)
 
 
 
@@ -177,7 +177,7 @@ EBjAnoZeyUihPrcAniVWl5M44RuGctJe+IMNX4eVkC08AJ9v7cXsp5uDdQNo8q3R
 
 但是由于我不太清楚如何处理PGP格式的公钥，故无法在我的代码上真正的伪造中本聪的信息，只能写出对应伪造过程的代码，并验证其正确性.
 
-![image-20220730164807543](C:\Users\Uncharged Legion\AppData\Roaming\Typora\typora-user-images\image-20220730164807543.png)
+![image-20220730164807543](https://user-images.githubusercontent.com/78082874/181903127-6ab45a46-1522-426a-816c-d4ee22db4c8e.png)
 
 ## Eth-public  
 
