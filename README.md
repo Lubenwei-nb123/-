@@ -6,11 +6,66 @@
 | ------ | ------------ |
 | 翁梓诚 | 202000460122 |
 
+## 任务完成情况
+
+| 任务                                                         | 是否完成 |
+| ------------------------------------------------------------ | -------- |
+| implement the naïve birthday attack of reduced SM3           | ✔        |
+| implement the Rho method of reduced SM3                      | ✔        |
+| implement length extension attack for SM3, SHA256, etc.      | ✔        |
+| do your best to optimize SM3 implementation (software)       | ✔        |
+| Impl Merkle Tree following RFC6962                           | ✔        |
+| Try to Implement this scheme                                 |          |
+| report on the application of this deduce technique in Ethereum with ECDSA | ✔        |
+| Impl Merkle Tree following RFC6962                           | ✔        |
+| verify the above pitfalls with proof-of-concept code         |          |
+| Implement the above ECMH scheme                              |          |
+| Implement a PGP scheme with SM2                              |          |
+| implement sm2 2P sign with real network communication        |          |
+| PoC impl of the scheme, or do implement analysis by Google   |          |
+| implement sm2 2P decrypt with real network communication     |          |
+| send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself |          |
+| forge a signature to pretend that you are Satoshi            | ✔        |
+| research report on MP                                        |          |
+| Find a key with hash value “sdu_cst_20220610” under a message composed of your name followed by your student ID. For example, “San Zhan 202000460001” |          |
+| Find a 64-byte message under some k fulfilling that their hash value is symmetrical |          |
+| Real world zk                                                |          |
+
+
+
 ## SM3  
 
 ### Project: implement the naïve birthday attack of reduced SM3  
 
+#### 运行方法
+
+下载SM3_advanced后，打开SM3_advanced.cpp直接运行即可
+
+#### 结论
+
+最终找到了16bits的碰撞.
+
+![image-20220730150634148](C:\Users\Uncharged Legion\AppData\Roaming\Typora\typora-user-images\image-20220730150634148.png)
+
 ### Project: implement the Rho method of reduced SM3  
+
+#### 运行方法
+
+下载SM3_advanced后，打开SM3_advanced.cpp直接运行即可
+
+#### 结论
+
+最终找到了256bits的碰撞.
+
+初始明文为$M = M_1||M_2||M_3||M_4||M_5||M_6 = 0x01||0x02||0x03||0x04||0x05||0x06$
+
+迭代函数为$M_1||M_2||M_3||M4||M_5||M_6 \leftarrow M_1+2||M_2+2||M_3+2||M_4+2||M_5+2||M_6+2$
+
+分别进行前8、16、128、256bits的碰撞，运行结果如下：
+
+![image-20220730115102064](C:\Users\Uncharged Legion\AppData\Roaming\Typora\typora-user-images\image-20220730115102064.png)
+
+
 
 ### Project: implement length extension attack for SM3, SHA256, etc.：SM3_advanced.cpp的main函数  
 
@@ -20,6 +75,12 @@
 
 ### Project: do your best to optimize SM3 implementation (software)：SM3_advanced.h, SM3_advanced.cpp  
 
+#### 运行方法
+
+下载SM3_advanced后，打开SM3_advanced.cpp直接运行即可
+
+#### 结论
+
 2022.7.7  
 
 1. 使用循环展开，让循环CPE逼近吞吐量界限。  
@@ -27,6 +88,12 @@
 3. 尽可能使用三目运算符代替if{}else{}，即使用数据传送来代替条件转移，提升效率.(详见CSAPP)  
 
 ### Project: Impl Merkle Tree following RFC6962：Merkel_Tree.go  
+
+#### 运行方法
+
+打开Merkle_Tree.go后直接运行即可
+
+#### 结论
 
 基于Go语言的Merkle树实现，其中附带了一个样例：  
 ![image](https://user-images.githubusercontent.com/78082874/178011264-26870bc4-36e0-4d67-9d12-55f25d47517a.png)  
@@ -38,6 +105,12 @@
 ## SM2  
 
 ### *Project: report on the application of this deduce technique in Ethereum with ECDSA：SM2_recover_pk 
+
+#### 运行方法
+
+将deduce.py和func_lib.py放在同一文件夹下后运行deduce.py即可
+
+#### 结论
 
 明文以字符串"SDU"为样例，输出如下：  
 ![image](https://user-images.githubusercontent.com/78082874/179349603-ff2f67ba-544b-4859-bfe4-29eb5e5cb62f.png)  
@@ -63,6 +136,12 @@
 ### *Project: send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself  
 
 ### *Project: forge a signature to pretend that you are Satoshi  
+
+#### 运行方法
+
+下载forge Satoshi's signature后直接运行forge sign.py即可
+
+#### 结论
 
 通过Google搜索，在https://cryptome.org/2015/11/satoshi-nakamoto-public-key.htm 上找到了中本聪的公钥：  
 -----BEGIN PGP PUBLIC KEY BLOCK-----  
@@ -95,6 +174,10 @@ EBjAnoZeyUihPrcAniVWl5M44RuGctJe+IMNX4eVkC08AJ9v7cXsp5uDdQNo8q3R
 8RHwN4Gk8w==  
 =3FTe  
 -----END PGP PUBLIC KEY BLOCK-----  
+
+但是由于我不太清楚如何处理PGP格式的公钥，故无法在我的代码上真正的伪造中本聪的信息，只能写出对应伪造过程的代码，并验证其正确性.
+
+![image-20220730164807543](C:\Users\Uncharged Legion\AppData\Roaming\Typora\typora-user-images\image-20220730164807543.png)
 
 ## Eth-public  
 
