@@ -1,44 +1,69 @@
-#作业  
-##SM3  
-Project: implement the naïve birthday attack of reduced SM3  
-Project: implement the Rho method of reduced SM3  
-Project: implement length extension attack for SM3, SHA256, etc.：SM3_advanced.cpp的main函数  
+# 创新创业实践大作业
+
+## 小组成员
+
+| 成员   | 学号         |
+| ------ | ------------ |
+| 翁梓诚 | 202000460122 |
+
+## SM3  
+
+### Project: implement the naïve birthday attack of reduced SM3  
+
+### Project: implement the Rho method of reduced SM3  
+
+### Project: implement length extension attack for SM3, SHA256, etc.：SM3_advanced.cpp的main函数  
+
 2022.7.14  
 以字符串"SDU"为样例，输出如下：  
 ![image](https://user-images.githubusercontent.com/78082874/179014712-498c4684-43c8-471f-b8f0-201a00b6728f.png)
-  
-Project: do your best to optimize SM3 implementation (software)：SM3_advanced.h, SM3_advanced.cpp  
+
+### Project: do your best to optimize SM3 implementation (software)：SM3_advanced.h, SM3_advanced.cpp  
+
 2022.7.7  
-1.使用循环展开，让循环CPE逼近吞吐量界限。  
-2.使用inline关键字替代宏定义，使得算法鲁棒性更强.(详见Effective C++)  
-3.尽可能使用三目运算符代替if{}else{}，即使用数据传送来代替条件转移，提升效率.(详见CSAPP)  
-  
-Project: Impl Merkle Tree following RFC6962：Merkel_Tree.go  
+
+1. 使用循环展开，让循环CPE逼近吞吐量界限。  
+2. 使用inline关键字替代宏定义，使得算法鲁棒性更强.(详见Effective C++)  
+3. 尽可能使用三目运算符代替if{}else{}，即使用数据传送来代替条件转移，提升效率.(详见CSAPP)  
+
+### Project: Impl Merkle Tree following RFC6962：Merkel_Tree.go  
+
 基于Go语言的Merkle树实现，其中附带了一个样例：  
 ![image](https://user-images.githubusercontent.com/78082874/178011264-26870bc4-36e0-4d67-9d12-55f25d47517a.png)  
 输出结果如下：  
 ![image](https://user-images.githubusercontent.com/78082874/178011604-a20de593-5586-4b99-a1b2-518ba26bd88c.png)  
 
-Project: Try to Implement this scheme   
-  
-##SM2  
-*Project: report on the application of this deduce technique in Ethereum with ECDSA：SM2_recover_pk  
+### Project: Try to Implement this scheme   
+
+## SM2  
+
+### *Project: report on the application of this deduce technique in Ethereum with ECDSA：SM2_recover_pk 
+
 明文以字符串"SDU"为样例，输出如下：  
 ![image](https://user-images.githubusercontent.com/78082874/179349603-ff2f67ba-544b-4859-bfe4-29eb5e5cb62f.png)  
-  
-*Project: impl sm2 with RFC6979：SM2_impl  
+
+### *Project: impl sm2 with RFC6979：SM2_impl  
+
 基于开源MIRACL库的实现  
-  
-*Project: verify the above pitfalls with proof-of-concept code  
-*Project: Implement the above ECMH scheme  
-*Project: Implement a PGP scheme with SM2  
-*Project: implement sm2 2P sign with real network communication  
-*Project: PoC impl of the scheme, or do implement analysis by Google  
-*Project: implement sm2 2P decrypt with real network communication  
-  
-##Bitcoin-public  
-*Project: send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself  
-*Project: forge a signature to pretend that you are Satoshi  
+
+### *Project: verify the above pitfalls with proof-of-concept code  
+
+### *Project: Implement the above ECMH scheme  
+
+### *Project: Implement a PGP scheme with SM2  
+
+### *Project: implement sm2 2P sign with real network communication  
+
+### *Project: PoC impl of the scheme, or do implement analysis by Google  
+
+### *Project: implement sm2 2P decrypt with real network communication  
+
+## Bitcoin-public  
+
+### *Project: send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself  
+
+### *Project: forge a signature to pretend that you are Satoshi  
+
 通过Google搜索，在https://cryptome.org/2015/11/satoshi-nakamoto-public-key.htm 上找到了中本聪的公钥：  
 -----BEGIN PGP PUBLIC KEY BLOCK-----  
 Version: GnuPG v1.4.7 (MingW32)  
@@ -70,17 +95,21 @@ EBjAnoZeyUihPrcAniVWl5M44RuGctJe+IMNX4eVkC08AJ9v7cXsp5uDdQNo8q3R
 8RHwN4Gk8w==  
 =3FTe  
 -----END PGP PUBLIC KEY BLOCK-----  
-  
-##Eth-public  
-Project: research report on MP  
-  
-##Real world cryptanalyses  
 
-Project: Find a key with hash value “sdu_cst_20220610” under a message composed of your name followed by your student ID. For example, “San Zhan 202000460001”.  
-Project: Find a 64-byte message under some k fulfilling that their hash value is symmetrical  
-  
-##Real world zk  
-Project Idea   
+## Eth-public  
+
+### Project: research report on MP  
+
+## Real world cryptanalyses  
+
+### Project: Find a key with hash value “sdu_cst_20220610” under a message composed of your name followed by your student ID. For example, “San Zhan 202000460001”.  
+
+### Project: Find a 64-byte message under some k fulfilling that their hash value is symmetrical  
+
+## Real world zk  
+
+### Project Idea   
+
 1. Write a circuit to prove that your CET6 grade is larger than 425  
 a. Your grade info is like (cn_id, grade, year, sig_by_moe)，These grades are published as commitments onchain by MoE.  
 b. When you got an interview from an employer, you can prove to them that you have passed the exam without letting them know the exact grade.  
