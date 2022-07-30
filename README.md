@@ -120,6 +120,8 @@
 基于开源MIRACL库的实现  
 
 ### *Project: verify the above pitfalls with proof-of-concept code  
+![image](https://user-images.githubusercontent.com/78082874/181933540-195f803d-6707-4f4d-b798-a176f58bd628.png)
+
 
 ### *Project: Implement the above ECMH scheme  
 
