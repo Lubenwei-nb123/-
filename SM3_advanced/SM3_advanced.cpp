@@ -1,8 +1,112 @@
 #include "SM3_advanced.h"
 #include<iostream>
+#include<set>
+#include<array>
+#include<windows.h>
 using namespace std;
+class TimeCounter {
+public:
+	TimeCounter(void) {
+		QueryPerformanceFrequency(&CPUClock);
+	}
+	double timeInterval;
+private:
+	LARGE_INTEGER startTime, endTime, CPUClock;
+
+public:
+	void start() {
+		QueryPerformanceCounter(&startTime);
+	}
+	void end() {
+		QueryPerformanceCounter(&endTime);
+		timeInterval = 1e3 * ((double)endTime.QuadPart - (double)startTime.QuadPart) / (double)CPUClock.QuadPart;
+		//ms
+	}
+};
 static void _CF(unsigned char* ucpSrcMsg, unsigned int nHash[8]);
-int main() {
+void rho_attack_8bits() {
+	unsigned char M[6] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06}, H[32]={0};
+	set<unsigned char> hash_prefix;
+	unsigned char tmp = 0;
+	for (int i = 0; i < pow(2, 32); i++) {
+		SM3_256(M, 6, H);
+		tmp = H[0];
+		if (i != 0) {
+			if (hash_prefix.find(tmp) != hash_prefix.end()) {
+				cout << "collide successfully with " << hash_prefix.size() << " prefixs!" << endl;
+				return;
+			}
+		}
+		hash_prefix.insert(tmp);
+		for (int j = 0; j < 5; j++) {
+			M[j]  = M[j] + 2;
+		}
+	}
+}
+void rho_attack_16bits() {
+	unsigned char M[6] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06}, H[32]={0};
+	set<array<unsigned char, 2>> hash_prefix;
+	array<unsigned char, 2> tmp = { 0 };
+	for (int i = 0; i < pow(2, 32); i++) {
+		SM3_256(M, 6, H);
+		for (int j = 0; j < 2; j++) {
+			tmp[j] = H[j];
+		}
+		if (i != 0) {
+			if (hash_prefix.find(tmp) != hash_prefix.end()) {
+				cout << "collide successfully with " << hash_prefix.size() << " prefixs!" << endl; 
+				return;
+			}
+		}
+		hash_prefix.insert(tmp);
+		for (int j = 0; j < 5; j++) {
+			M[j] = M[j] + 2;
+		}
+	}
+}
+void rho_attack_128bits() {
+	unsigned char M[6] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06 }, H[32]={0};
+	set<array<unsigned char, 16>> hash_prefix;
+	array<unsigned char, 16> tmp = { 0 };
+	for (int i = 0; i < pow(2, 32); i++) {
+		SM3_256(M, 6, H);
+		for (int j = 0; j < 16; j++) {
+			tmp[j] = H[j];
+		}
+		if (i != 0) {
+			if (hash_prefix.find(tmp) != hash_prefix.end()) {
+				cout << "collide successfully with " << hash_prefix.size() << " prefixs!" << endl;
+				return;
+			}
+		}
+		hash_prefix.insert(tmp);
+		for (int j = 0; j < 5; j++) {
+			M[j] = M[j] + 2;
+		}
+	}
+}
+void rho_attack_256bits() {
+	unsigned char M[6] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06 }, H[32]={0};
+	set<array<unsigned char, 32>> hash_prefix;
+	array<unsigned char, 32> tmp = { 0 };
+	for (int i = 0; i < pow(2, 32); i++) {
+		SM3_256(M, 6, H);
+		for (int j = 0; j < 32; j++) {
+			tmp[j] = H[j];
+		}
+		if (i != 0) {
+			if (hash_prefix.find(tmp) != hash_prefix.end()) {
+				cout << "collide successfully with " << hash_prefix.size() << " prefixs!" << endl;
+				return;
+			}
+		}
+		hash_prefix.insert(tmp);
+		for (int j = 0; j < 5; j++) {
+			M[j] = M[j] + 2;
+		}
+	}
+}
+void meow_hash_attack() {
 	//这里是攻击代码
 	unsigned char H0[32] = { 0 };
 	unsigned char H1[32] = { 0 };
@@ -109,6 +213,30 @@ Output: W[64]
  Return: null
  Others:
 ****************************************************************/
+int main() {
+	cout << "以下是rho方法攻击的演示" << endl;
+	TimeCounter t1, t2, t3, t4;
+	cout << "rho method for 8 bits" << endl;
+	t1.start();
+	rho_attack_8bits();
+	t1.end();
+	cout << "Time consumption：" << t1.timeInterval << " " << "ms" << endl;
+	cout << "rho method for 16 bits" << endl;
+	t2.start();
+	rho_attack_16bits();
+	t2.end();
+	cout << "Time consumption：" << t2.timeInterval << " " << "ms" << endl;
+	cout << "rho method for 128 bits" << endl;
+	t3.start();
+	rho_attack_128bits();
+	t3.end();
+	cout << "Time consumption：" << t3.timeInterval << " " << "ms" << endl;
+	cout << "rho method for 256 bits" << endl;
+	t4.start();
+	rho_attack_256bits();
+	t4.end();
+	cout << "Time consumption：" << t3.timeInterval << " " << "ms" << endl;
+}
 void BiToW(unsigned int Bi[], unsigned int W[])
 {
 	int i;
