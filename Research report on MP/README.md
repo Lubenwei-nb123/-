@@ -23,8 +23,7 @@
 
 默克尔树是自底向上构建的. 将相邻两个节点的哈希值合并成一个字符串，然后计算这个字符串的哈希，得到的就是这两个节点的父节点的哈希值. 
 
-![image-20220730205111832](C:\Users\Uncharged Legion\AppData\Roaming\Typora\typora-user-images\image-20220730205111832.png)
-
+![image-20220730205111832](https://user-images.githubusercontent.com/78082874/181916107-0232ba4b-6e83-4936-a070-41860e7e5bdc.png)
 默克尔树有以下性质：
 
 - 校验整体数据的正确性
