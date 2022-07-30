@@ -18,7 +18,7 @@
 | Try to Implement this scheme                                 |          |
 | report on the application of this deduce technique in Ethereum with ECDSA | ✔        |
 | Impl Merkle Tree following RFC6962                           | ✔        |
-| verify the above pitfalls with proof-of-concept code         |          |
+| verify the above pitfalls with proof-of-concept code         | ✔        |
 | Implement the above ECMH scheme                              |          |
 | Implement a PGP scheme with SM2                              |          |
 | implement sm2 2P sign with real network communication        |          |
