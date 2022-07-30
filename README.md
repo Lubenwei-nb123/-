@@ -120,8 +120,17 @@
 基于开源MIRACL库的实现  
 
 ### *Project: verify the above pitfalls with proof-of-concept code  
-![image](https://user-images.githubusercontent.com/78082874/181933540-195f803d-6707-4f4d-b798-a176f58bd628.png)
+#### 运行方法
 
+下载pitfalls后，直接运行pitfalls.py即可.
+
+#### 结论
+
+按照课件上的方法进行攻击即可，运行结果如下：
+
+![image](https://user-images.githubusercontent.com/78082874/181933540-195f803d-6707-4f4d-b798-a176f58bd628.png)  
+
+参考链接：[(14条消息) SM3算法 (python)_Love is Zero的博客-CSDN博客_sm3python](https://blog.csdn.net/qq_43752749/article/details/123579647)
 
 ### *Project: Implement the above ECMH scheme  
 
