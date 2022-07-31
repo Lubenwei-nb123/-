@@ -120,7 +120,6 @@
 
 ### *Project: impl sm2 with RFC6979：SM2_impl  
 
-基于开源MIRACL库的实现  
 
 ### *Project: verify the above pitfalls with proof-of-concept code  
 #### 运行方法
