@@ -22,7 +22,7 @@
 | verify the above pitfalls with proof-of-concept code         | ✔        |
 | Implement the above ECMH scheme                              | ✔        |
 | Implement a PGP scheme with SM2                              |          |
-| implement sm2 2P sign with real network communication        |          |
+| implement sm2 2P sign with real network communication        | ✔         |
 | PoC impl of the scheme, or do implement analysis by Google   | ✔         |
 | implement sm2 2P decrypt with real network communication     |          |
 | send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself |          |
