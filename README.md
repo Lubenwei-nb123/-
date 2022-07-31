@@ -133,9 +133,20 @@
 参考链接：[(14条消息) SM3算法 (python)_Love is Zero的博客-CSDN博客_sm3python](https://blog.csdn.net/qq_43752749/article/details/123579647)
 
 ### *Project: Implement the above ECMH scheme 
+#### 运行方法
 
-![image](https://user-images.githubusercontent.com/78082874/182007745-c2069ef7-1703-4641-8ba5-97ccbf18169b.png)
+下载ECMH后，直接运行ECMH.py即可
 
+#### 结论
+
+多集合哈希有以下优点：
+
+- 非常高效
+- 快速验证比特币所有权
+
+运行结果如下：
+![image](https://user-images.githubusercontent.com/78082874/182007745-c2069ef7-1703-4641-8ba5-97ccbf18169b.png)  
+参考链接：[[bitcoin-dev\] Rolling UTXO set hashes (linuxfoundation.org)](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2017-May/014337.html)  
 ### *Project: Implement a PGP scheme with SM2  
 
 ### *Project: implement sm2 2P sign with real network communication  
