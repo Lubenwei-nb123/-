@@ -218,6 +218,13 @@ EBjAnoZeyUihPrcAniVWl5M44RuGctJe+IMNX4eVkC08AJ9v7cXsp5uDdQNo8q3R
 ## Eth-public  
 
 ### Project: research report on MP  
+#### 运行方法
+
+打开Research report on MP中的README即可.
+
+#### 结论
+
+略
 
 ## Real world cryptanalyses  
 
