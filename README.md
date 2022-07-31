@@ -18,18 +18,20 @@
 | Try to Implement this scheme                                 |          |
 | report on the application of this deduce technique in Ethereum with ECDSA | ✔        |
 | Impl Merkle Tree following RFC6962                           | ✔        |
+| impl sm2 with RFC6979                                        |          |
 | verify the above pitfalls with proof-of-concept code         | ✔        |
-| Implement the above ECMH scheme                              |          |
+| Implement the above ECMH scheme                              | ✔        |
 | Implement a PGP scheme with SM2                              |          |
 | implement sm2 2P sign with real network communication        |          |
 | PoC impl of the scheme, or do implement analysis by Google   |          |
 | implement sm2 2P decrypt with real network communication     |          |
 | send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself |          |
 | forge a signature to pretend that you are Satoshi            | ✔        |
-| research report on MP                                        | ✔         |
+| research report on MP                                        | ✔        |
 | Find a key with hash value “sdu_cst_20220610” under a message composed of your name followed by your student ID. For example, “San Zhan 202000460001” |          |
 | Find a 64-byte message under some k fulfilling that their hash value is symmetrical |          |
 | Real world zk                                                |          |
+                                           |          |
 
 
 
