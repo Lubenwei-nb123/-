@@ -74,7 +74,7 @@
 以字符串"SDU"为样例，输出如下：  
 ![image](https://user-images.githubusercontent.com/78082874/179014712-498c4684-43c8-471f-b8f0-201a00b6728f.png)
 
-### Project: do your best to optimize SM3 implementation (software)：SM3_advanced.h, SM3_advanced.cpp  
+### Project: do your best to optimize SM3 implementation (software)  
 
 #### 运行方法
 
@@ -153,6 +153,13 @@
 ### *Project: implement sm2 2P sign with real network communication  
 
 ### *Project: PoC impl of the scheme, or do implement analysis by Google  
+#### 运行方法
+
+下载PoC后，先运行server.py，再运行client.py即可.
+
+#### 结论
+
+根据PPT上编写代码即可，运行截图如下
 ![image](https://user-images.githubusercontent.com/78082874/182009786-eba65319-b75c-4634-8b33-e7147df0e70b.png)
 ![image](https://user-images.githubusercontent.com/78082874/182009789-d8ea86e1-fdff-4664-9aab-e1193bbad199.png)
 
