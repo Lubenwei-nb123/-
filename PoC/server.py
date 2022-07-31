@@ -1,45 +1,47 @@
-from SM3 import *
-import json
 import socket
+import json
 from os.path import commonprefix
+from SM3 import *
 
-sk_server = 7
-n = 23
-host = ''
-port = 1234
+#公私钥对
+sk_server, pk = 2200, 1376666
+
+#端口设置
+host, port = '', 1000
+
+#绑定端口
 Client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 Client.bind((host, port))
+print("The Server connects successfully!")
 
-print("Server connected!")
-
-# 从客户端接收1024B的数据
+#Process data info
 k, Address = Client.recvfrom(1024)
-k = int(k.decode(),16)
+k          = int(k.decode(),16)
 v, Address = Client.recvfrom(1024)
-v = int(v.decode(),16)
+v          = int(v.decode(),16)
 
 # create key-value table
 KV_table = []
 
 #divide the table into 2^16 sets according to the key k_i
-for i in range(20000 ,20000 + pow(2,16)):
+for i in range(pow(2, 16)):
     h = SM3(str(i) + str(i)).hash()
     KV_table.append(h)   
 S = []
-for m in KV_table:
-    if m[:2] == k:
-        S.append((pow(int(m,16),sk_server))%n)
+for item in KV_table:
+    if item[:2] == k:
+        S.append((pow(int(item, 16),sk_server))%pk)
 
-print("S:",S)
+print("data set S = ",S)
 
 #compute h^(ab)
-h__ab=(pow(v, sk_server))%n
+h__ab = (pow(v, sk_server)) % pk
 
 #send h^(ab) and data set S to the client
-Client.sendto(hex(h__ab).encode(), Address)
 #将列表转换成json结构
-json_v = json.dumps(S)
-Client.sendto(json_v.encode('utf-8'), Address)
+json_S = json.dumps(S)
+Client.sendto(hex(h__ab).encode(), Address)
+Client.sendto(json_S.encode('utf-8'), Address)
 Client.close()
 
-print("Server closed!")
+print("The Server has closed!")
