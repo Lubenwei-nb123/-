@@ -5,7 +5,7 @@ import random
 from func_lib import *
 from SM3 import *
 
-#椭圆曲线参数设置
+#椭圆曲线参数
 P  = 115792089237316195423570985008687907853269984665640564039457584007908834671663    
 A  = 0
 B  = 7
@@ -18,7 +18,7 @@ G  = (Gx, Gy)
 
 #端口设置
 host, port = '127.0.0.1', 1000
-Party1 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+Party1     = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 try:
     Party1.connect((host, port))
@@ -31,7 +31,7 @@ else:
     d_1 = random.randint(1, N - 1)
     
     #compute P1 = d1^(-1) G
-    P1 = elliptic_multiply(mod_inverse(d_1,P), G)
+    P1       = elliptic_multiply(mod_inverse(d_1,P), G)
     P1x, P1y = hex(P1[0]), hex(P1[1])
     
     #send P1 to P2
@@ -39,10 +39,10 @@ else:
     Party1.sendto(P1x.encode('utf-8'), Address)
     Party1.sendto(P1y.encode('utf-8'), Address)
 
-    #compute ZA
+    #compute Z
     M = "SDU is NO.1 university!"
-    _M = hex(int(binascii.b2a_hex(M.encode()).decode(), 16)).upper()[2:]
-    e = SM3(_M).hash()
+    Z = hex(int(binascii.b2a_hex(M.encode()).decode(), 16)).upper()[2:]
+    e = SM3(Z).hash()
     
     #randomly generate k1
     k_1 = random.randint(1, N - 1)
@@ -67,5 +67,5 @@ else:
     #compute s
     s = ((d_1 * k_1) * s_2 + d_1 * s_3 - r) % N
     if s!=0 or s!= N - r:
-        print("sign:", (hex(r),hex(s)))
+        print("2 parties signature:", (hex(r),hex(s)))
     Party1.close()

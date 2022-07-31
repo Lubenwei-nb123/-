@@ -15,7 +15,7 @@ _G = (Gx, -Gy)
 
 #端口设置
 host, port = '', 1000
-Party2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+Party2     = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 Party2.bind((host, port))
 
 print("P2 has connected!")
@@ -57,8 +57,8 @@ x1,y1 = elliptic_multiply(k_3, Q1)
 tmp   = (x1, y1)
 x1,y1 = elliptic_add(tmp, Q2)
 r     = (x1 + e) % N
-s2    = (d_2 * k_3)%N
-s3    = (d_2 * (r + k_2))%N
+s2    = (d_2 * k_3) % N
+s3    = (d_2 * (r + k_2)) % N
 
 #send r, s2 and s3 to P1
 Party2.sendto(hex(r).encode(),Address)
