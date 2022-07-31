@@ -68,8 +68,11 @@
 
 
 
-### Project: implement length extension attack for SM3, SHA256, etc.：SM3_advanced.cpp的main函数  
+### Project: implement length extension attack for SM3, SHA256, etc.  
+#### 运行方法
+下载SM3_advanced后，打开SM3_advanced.cpp直接运行即可  
 
+#### 结论
 2022.7.14  
 以字符串"SDU"为样例，输出如下：  
 ![image](https://user-images.githubusercontent.com/78082874/179014712-498c4684-43c8-471f-b8f0-201a00b6728f.png)
