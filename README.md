@@ -174,11 +174,17 @@
 ![image](https://user-images.githubusercontent.com/78082874/182009789-d8ea86e1-fdff-4664-9aab-e1193bbad199.png)
 
 ### *Project: implement sm2 2P decrypt with real network communication  
+#### 运行方法
 
-![image](https://user-images.githubusercontent.com/78082874/182013102-e280d49e-015c-4375-856a-0e19a7637303.png)
-![image](https://user-images.githubusercontent.com/78082874/182013106-1ac1d133-3468-4d3d-af0e-1d1f3d5f66c8.png)
+下载2 parties dec后，先运行P2.py，再运行P1.py即可.
 
+#### 结论
 
+根据课件编写代码即可，运行截图如下
+![image](https://user-images.githubusercontent.com/78082874/182013102-e280d49e-015c-4375-856a-0e19a7637303.png)  
+![image](https://user-images.githubusercontent.com/78082874/182013106-1ac1d133-3468-4d3d-af0e-1d1f3d5f66c8.png)  
+  
+参考链接：https://blog.csdn.net/HORHEART/article/details/120123657
 ## Bitcoin-public  
 
 ### *Project: send a tx on Bitcoin testnet, and parse the tx data down to every bit, better write script yourself  
