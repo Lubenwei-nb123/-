@@ -87,6 +87,8 @@
 1. 使用循环展开，让循环CPE逼近吞吐量界限。  
 2. 使用inline关键字替代宏定义，使得算法鲁棒性更强.(详见Effective C++)  
 3. 尽可能使用三目运算符代替if{}else{}，即使用数据传送来代替条件转移，提升效率.(详见CSAPP)  
+以下是运行截图  
+![image](https://user-images.githubusercontent.com/78082874/182010013-5f2eec49-4f41-420c-b2a7-fe1f96548366.png)
 
 ### Project: Impl Merkle Tree following RFC6962：Merkel_Tree.go  
 
