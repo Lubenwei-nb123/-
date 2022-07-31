@@ -31,7 +31,6 @@
 | Find a key with hash value “sdu_cst_20220610” under a message composed of your name followed by your student ID. For example, “San Zhan 202000460001” |          |
 | Find a 64-byte message under some k fulfilling that their hash value is symmetrical |          |
 | Real world zk                                                |          |
-                                           |          |
 
 
 
