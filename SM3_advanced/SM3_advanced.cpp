@@ -3,6 +3,8 @@
 #include<set>
 #include<array>
 #include<windows.h>
+#include<thread>
+#include<vector>
 using namespace std;
 class TimeCounter {
 public:
@@ -106,8 +108,75 @@ void rho_attack_256bits() {
 		}
 	}
 }
-void meow_hash_attack() {
-	//这里是攻击代码
+void rho_collision() {
+	cout << "以下是rho方法攻击的演示" << endl;
+	TimeCounter t1, t2, t3, t4;
+	cout << "rho method for 8 bits" << endl;
+	t1.start();
+	rho_attack_8bits();
+	t1.end();
+	cout << "Time consumption：" << t1.timeInterval << " " << "ms" << endl;
+	cout << "rho method for 16 bits" << endl;
+	t2.start();
+	rho_attack_16bits();
+	t2.end();
+	cout << "Time consumption：" << t2.timeInterval << " " << "ms" << endl;
+	cout << "rho method for 128 bits" << endl;
+	t3.start();
+	rho_attack_128bits();
+	t3.end();
+	cout << "Time consumption：" << t3.timeInterval << " " << "ms" << endl;
+	cout << "rho method for 256 bits" << endl;
+	t4.start();
+	rho_attack_256bits();
+	t4.end();
+	cout << "Time consumption：" << t3.timeInterval << " " << "ms" << endl;
+}
+void birthday_attack_nbits(int n) {
+	TimeCounter t;
+	t.start();
+	int length = n / 8;
+	unsigned char* M1 = new unsigned char [length], * M2 = new unsigned char [length];
+	unsigned char H1[32], H2[32];
+	srand((unsigned)time(NULL));
+	for (int i = 0; i < pow(2, length * 8); i++) {
+		for (int j = 0; j < length; j++) {
+			M1[j] = rand() % (0xff + 1);
+		}
+		for (int j = 0; j < length; j++) {
+			M2[j] = rand() % (0xff + 1);
+		}
+		SM3_256(M1, length, H1);
+		SM3_256(M2, length, H2);
+		int stop;
+		for (stop = 0; stop < length; stop++) {
+			if (H1[stop] != H2[stop]) {
+				break;
+			}
+		}
+		if (stop == length) {
+			cout << "collide successfully!" << endl;
+			break;
+		}
+	}
+	t.end();
+	cout << "Time consumption：" << t.timeInterval << " ms" << endl;
+}
+void birthday_attack() {
+	cout << "以下是生日攻击" << endl;
+	cout << "birthday attack for 8 bits：" << endl;
+	birthday_attack_nbits(8);
+	cout << "birthday attack for 16 bits：" << endl;
+	birthday_attack_nbits(16);
+	cout << "birthday attack for 64 bits：" << endl;
+	birthday_attack_nbits(64);
+	cout << "birthday attack for 128 bits：" << endl;
+	birthday_attack_nbits(128);
+	cout << "birthday attack for 256 bits：" << endl;
+	birthday_attack_nbits(256);
+}
+void extension_attack() {
+	cout << "以下是长度扩展攻击：" << endl;
 	unsigned char H0[32] = { 0 };
 	unsigned char H1[32] = { 0 };
 	unsigned char H2[32] = { 0 };
@@ -196,46 +265,22 @@ void meow_hash_attack() {
 			if (i != 31)
 				continue;
 			else
-				printf("success！");
+				printf("success！\n");
 		} else {
-			printf("fail！");
+			printf("fail！\n");
 			break;
 		}
 	}
 }
-/****************************************************************
- Function: BiToW
- Description: calculate W from Bi
- Calls:
- Called By: SM3_compress
- Input: Bi[16] //a block of a message
-Output: W[64]
- Return: null
- Others:
-****************************************************************/
 int main() {
-	cout << "以下是rho方法攻击的演示" << endl;
-	TimeCounter t1, t2, t3, t4;
-	cout << "rho method for 8 bits" << endl;
-	t1.start();
-	rho_attack_8bits();
-	t1.end();
-	cout << "Time consumption：" << t1.timeInterval << " " << "ms" << endl;
-	cout << "rho method for 16 bits" << endl;
-	t2.start();
-	rho_attack_16bits();
-	t2.end();
-	cout << "Time consumption：" << t2.timeInterval << " " << "ms" << endl;
-	cout << "rho method for 128 bits" << endl;
-	t3.start();
-	rho_attack_128bits();
-	t3.end();
-	cout << "Time consumption：" << t3.timeInterval << " " << "ms" << endl;
-	cout << "rho method for 256 bits" << endl;
-	t4.start();
-	rho_attack_256bits();
-	t4.end();
-	cout << "Time consumption：" << t3.timeInterval << " " << "ms" << endl;
+	cout << "以下是函数自检" << endl;
+	if (SM3_SelfTest() == 0) {
+		cout << "通过自检！" << endl;
+	}
+	extension_attack();
+	rho_collision();
+	birthday_attack();
+	
 }
 void BiToW(unsigned int Bi[], unsigned int W[])
 {
